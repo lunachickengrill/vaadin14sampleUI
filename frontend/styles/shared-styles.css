@@ -1,0 +1,103 @@
+/*
+   CSS styling examples for the Vaadin app.
+   Visit https://vaadin.com/docs/flow/theme/theming-overview.html and
+   https://vaadin.com/themes/lumo for more information.
+*/
+/*
+#477a62	(71,122,98)
+#33ab74	(51,171,116)
+#a9e884	(169,232,132)
+#292930	(41,41,48)
+#f9fcf8	(249,252,248)
+*/
+/* Example: CSS class name to center align the content . */
+.centered-content {
+  margin: 0 auto;
+  max-width: 250px;
+}
+
+.form-centered-content {
+  margin: 0 auto;
+  max-width: 550px;
+}
+
+.form-centered-fit-content {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.background {
+	background-color:#f9fcf8;
+	width: 100%;
+	height: 100%;
+}
+
+.background-dialog {
+	background-color:#f9fcf8;
+}
+
+.properties-table-center {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  width: 50%;
+  border-bottom: 1px solid #292930;
+  border-left: 1px solid #292930;
+  box-shadow: -3px 4px 10px #888888;
+}
+
+.properties-table-center-flat {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  width: 50%;
+  border-bottom: 1px solid #292930;
+  border-left: 1px solid #292930;
+  box-shadow: -3px 4px 10px #888888;
+}
+
+.customer-table {
+	padding: 20px;
+	border-bottom: 1px solid #292930;
+	border-left: 1px solid #292930;
+	box-shadow: -3px 4px 10px #888888;
+}
+
+.customer-table-flat {
+	padding: 20px;
+	border-bottom: 1px solid #292930;
+	border-left: 1px solid #292930;
+}
+
+.header {
+	padding: 20px;
+	color: #f9fcf8;
+	font-size: 200%;
+	font-weight: bold;
+	background-color: #33ab74;
+	border-bottom: 1px solid #477a62;
+	border-left: 1px solid #477a62;
+	box-shadow: -3px 4px 10px #888888;
+}
+
+.form-default-border {
+	padding: 20px;
+	border-bottom: 1px solid #292930;
+	border-left: 1px solid #292930;
+	box-shadow: -3px 4px 10px #888888;
+/*	width: fit-content; */
+}
+
+.form-default-noborder-flat {
+	margin: 10 px;
+	padding: 20px;
+}
+
+.button-default {
+	color: #f9fcf8;
+	background-color: #292930;
+	box-shadow: -3px 4px 10px #888888;
+	margin-right: 10px;
+}
