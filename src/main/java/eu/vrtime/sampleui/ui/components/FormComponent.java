@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.flow.component.Key;
+import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.formlayout.FormLayout.ResponsiveStep;
 import com.vaadin.flow.component.formlayout.FormLayout.ResponsiveStep.LabelsPosition;
@@ -78,11 +80,25 @@ public class FormComponent extends VerticalLayout {
 		grid.addColumn(Customer::getFirstName).setHeader("First Name");
 		grid.addColumn(Customer::getLastName).setHeader("Last Name");
 		grid.addItemDoubleClickListener(event -> {
-			Notification.show(event.getItem().getCustomerId(), 3000, Notification.Position.TOP_CENTER);
+			Notification.show(event.getItem().getCustomerId(), 3000, Notification.Position.BOTTOM_END);
 		});
+		
+//		grid.addItemDoubleClickListener(event -> {createDialog((Customer)event.getItem()).open();});
 		grid.setWidth("700px");
 		grid.addClassName("customer-table");
 		return grid;
+	}
+	
+	private Dialog createDialog(final Customer customer) {
+		Dialog dg = new Dialog();
+		
+		dg.add(new Text(customer.getCustomerId()),new Text(customer.getLastName()), new Text(customer.getLastName()));
+		dg.setModal(false);
+		dg.setDraggable(true);
+		dg.setResizable(true);
+		dg.add(new Button("Close", e -> dg.close()));
+		
+		return dg;
 	}
 
 	private Button createSearchButton() {

@@ -101,3 +101,11 @@
 	box-shadow: -3px 4px 10px #888888;
 	margin-right: 10px;
 }
+
+.button-small {
+	color: #f9fcf8;
+	background-color: #292930;
+	box-shadow: -3px 4px 10px #888888;
+	margin-right: 10px;
+	width: auto;
+}

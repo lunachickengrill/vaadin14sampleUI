@@ -45,18 +45,22 @@ public class CreateCustomerDialog extends Dialog {
 
 		propertyGrid = createPropertiesGrid();
 		add(propertyGrid);
+		add(createSaveButton());
+		add(createNewPropertyButton());
 
 	}
 	
 	private Button createSaveButton() {
-		Button btn = new Button();
-		btn.addClassName("button-default");
+		Button btn = new Button("Save");
+		btn.addClassName("button-small");
+		btn.addClickListener(event -> {Notification.show("debug save",3000, Notification.Position.BOTTOM_END);});
 		return btn;
 	}
 	
 	private Button createNewPropertyButton() {
-		Button btn = new Button();
-		btn.addClassName("button-default");
+		Button btn = new Button("Add Property");
+		btn.addClassName("button-small");
+		btn.addClickListener(event -> {Notification.show("debug create", 3000, Notification.Position.BOTTOM_END);});
 		return btn;
 	}
 
@@ -64,6 +68,7 @@ public class CreateCustomerDialog extends Dialog {
 		formLayout.addFormItem(customerId, "Customer ID");
 		formLayout.addFormItem(firstName, "First Name");
 		formLayout.addFormItem(lastName, "Last Name");
+
 	}
 
 	private Grid<CustomerProperty> createPropertiesGrid() {
