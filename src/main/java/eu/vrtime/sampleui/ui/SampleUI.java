@@ -1,18 +1,16 @@
 package eu.vrtime.sampleui.ui;
 
+import java.util.Date;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.spring.annotation.SpringComponent;
+import com.vaadin.flow.server.VaadinSession;
 import com.vaadin.flow.spring.annotation.UIScope;
-import com.vaadin.flow.theme.NoTheme;
 import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.theme.lumo.Lumo;
 
@@ -32,10 +30,15 @@ public class SampleUI extends VerticalLayout {
 	private HeaderComponent header;
 	private FormComponent form;
 	private CustomerRepository customerRepo;
+	private VaadinSession session;
 
 	@Autowired
 	public SampleUI(CustomerRepository customerRepo) {
 		this.customerRepo = customerRepo;
+		session = VaadinSession.getCurrent();
+		session.setAttribute("user", new String("tschwaiger"));
+		session.setAttribute("date", new Date());
+		
 	}
 
 	@PostConstruct
@@ -46,6 +49,8 @@ public class SampleUI extends VerticalLayout {
 		add(header, form);
 		setHeightFull();
 		addClassName("background");
+		System.out.println(session.getAttribute("user"));
+		System.out.println(session.getAttribute("date"));
 	}
 
 }
