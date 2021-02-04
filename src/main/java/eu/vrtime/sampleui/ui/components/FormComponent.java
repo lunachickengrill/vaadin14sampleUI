@@ -1,26 +1,18 @@
 package eu.vrtime.sampleui.ui.components;
 
-import java.util.Collections;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
-import com.vaadin.flow.component.formlayout.FormLayout.ResponsiveStep;
-import com.vaadin.flow.component.formlayout.FormLayout.ResponsiveStep.LabelsPosition;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
-import com.vaadin.flow.data.binder.ValidationException;
 
 import eu.vrtime.sampleui.domain.Customer;
 import eu.vrtime.sampleui.infrastructure.CustomerRepository;
@@ -83,7 +75,7 @@ public class FormComponent extends VerticalLayout {
 			Notification.show(event.getItem().getCustomerId(), 3000, Notification.Position.BOTTOM_END);
 		});
 		
-//		grid.addItemDoubleClickListener(event -> {createDialog((Customer)event.getItem()).open();});
+		grid.addItemDoubleClickListener(event -> {createDialog((Customer)event.getItem()).open();});
 		grid.setWidth("700px");
 		grid.addClassName("customer-table");
 		return grid;

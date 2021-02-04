@@ -16,7 +16,7 @@ import lombok.Setter;
 public class CustomerSpecification implements Specification<Customer> {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String customerId;
 	private String firstName;
 	private String lastName;
@@ -28,24 +28,23 @@ public class CustomerSpecification implements Specification<Customer> {
 	@Override
 	public Predicate toPredicate(Root<Customer> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
 		Predicate predicate = criteriaBuilder.conjunction();
-		
-		if(customerId!=null) {
-			predicate.getExpressions().add(criteriaBuilder.like(criteriaBuilder.lower(root.get("customerId")), customerId.toLowerCase() + "%"));
+
+		if (customerId != null) {
+			predicate.getExpressions().add(criteriaBuilder.like(criteriaBuilder.lower(root.get("customerId")),
+					customerId.toLowerCase() + "%"));
 		}
-		
-		if(firstName!=null) {
-			predicate.getExpressions().add(criteriaBuilder.like(criteriaBuilder.lower(root.get("firstName")), firstName.toLowerCase() + "%"));
+
+		if (firstName != null) {
+			predicate.getExpressions().add(
+					criteriaBuilder.like(criteriaBuilder.lower(root.get("firstName")), firstName.toLowerCase() + "%"));
 		}
-		
-		if(lastName!=null) {
-			predicate.getExpressions().add(criteriaBuilder.like(criteriaBuilder.lower(root.get("lastName")), lastName.toLowerCase() + "%"));
+
+		if (lastName != null) {
+			predicate.getExpressions().add(
+					criteriaBuilder.like(criteriaBuilder.lower(root.get("lastName")), lastName.toLowerCase() + "%"));
 		}
 
 		return predicate;
 	}
-	
-	
-	
-	
 
 }
